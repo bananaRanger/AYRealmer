@@ -1,0 +1,6 @@
+framework module AYRealmer {
+  umbrella header "AYRealmer-umbrella.h"
+
+  export *
+  module * { export * }
+}

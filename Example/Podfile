@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'AYRealmer_Example' do
+  pod 'AYRealmer', :path => '../'
+
+  pod 'AYDataBaser', '~> 1.0.0'
+  pod 'RealmSwift', '~> 4.1.1'
+
+  target 'AYRealmer_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,0 +1,6 @@
+framework module AYDataBaser {
+  umbrella header "AYDataBaser-umbrella.h"
+
+  export *
+  module * { export * }
+}

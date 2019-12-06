@@ -1,0 +1,35 @@
+PODS:
+  - AYDataBaser (1.0.0)
+  - AYRealmer (1.0.0):
+    - AYDataBaser (~> 1.0.0)
+    - RealmSwift (~> 4.1.1)
+  - Realm (4.1.1):
+    - Realm/Headers (= 4.1.1)
+  - Realm/Headers (4.1.1)
+  - RealmSwift (4.1.1):
+    - Realm (= 4.1.1)
+
+DEPENDENCIES:
+  - AYDataBaser (~> 1.0.0)
+  - AYRealmer (from `../`)
+  - RealmSwift (~> 4.1.1)
+
+SPEC REPOS:
+  trunk:
+    - AYDataBaser
+    - Realm
+    - RealmSwift
+
+EXTERNAL SOURCES:
+  AYRealmer:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AYDataBaser: d8e21160a24ec4815e26873393199f02bfd59ba1
+  AYRealmer: 1fbff7cb7c169e3b85011465214f0963a1ab8fa5
+  Realm: 25f0a8244cbb1c2271c922963ea8666fc2d8104d
+  RealmSwift: 9e2657b33764f80e4a4dffd6d440e24715782052
+
+PODFILE CHECKSUM: 25f7e7c467d54a54952503503ac8c75825b09988
+
+COCOAPODS: 1.8.3
