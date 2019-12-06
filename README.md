@@ -5,11 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/AYRealmer.svg?style=flat)](https://cocoapods.org/pods/AYRealmer)
 [![Platform](https://img.shields.io/cocoapods/p/AYRealmer.svg?style=flat)](https://cocoapods.org/pods/AYRealmer)
 
-## Example
+<p align="center">
+  <img width="64%" height="64%" src="https://github.com/bananaRanger/AYRealmer/blob/master/Resources/logo.png?raw=true">
+</p>
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## About
 
-## Requirements
+AYRealmer library - is a wrapper that allows you to interact only with models instead of realm-entities.
 
 ## Installation
 
@@ -17,12 +19,24 @@ AYRealmer is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'AYRealmer'
+inhibit_all_warnings!
+
+target 'YOUR_TARGET_NAME' do
+  use_frameworks!
+	pod 'AYRealmer'
+end
+```
+
+## Usage
+
+```swift
+
+
 ```
 
 ## Author
 
-antonyereshchenko@gmail.com, anton.ereshchenko@powercode.us
+[📧](mailto:anton.yereshchenko@gmail.com?subject=[GitHub]%20Source%20AYRealmer) Anton Yereshchenko
 
 ## License
 
