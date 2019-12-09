@@ -31,6 +31,26 @@ end
 
 ```swift
 
+// 'AYRConfiguration' - enum that confirm to protocol 'AYDataBaseConfiguration' (configuration).
+// 'User' - struct that confirm to protocol 'AYRealmConvertibleModel' (model).
+
+// 1. Create 'AYRealmer' object with configuration and file location
+var realmer = AYRealmer(with: AYRConfiguration.user, in: .documents)
+
+// 2. Prepare 'User' object for saving
+var user = User()
+user.email = "tester@gmail.com"
+user.fullName = "Tester User"
+
+// 3. Store 'User' object
+realmer.add(model: user)
+
+// 4. Fetch & print 'User' objects
+let users: [User] = realmer.objects()
+print(users)
+
+// 5. Remove 'User' object
+realmer.remove(model: user)
 
 ```
 
