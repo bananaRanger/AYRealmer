@@ -31,9 +31,7 @@ class ViewController: UIViewController {
     var realmer = AYRealmer(with: AYRConfiguration.user, in: .documents)
     
     // 2. User for saving
-    var user = User()
-    user.email = "tester@gmail.com"
-    user.fullName = "Tester User"
+    let user = User(email: "tester@gmail.com", fullName: "Tester User")
     
     // 3. Printing users before adding
     let users0: [User] = realmer.objects()
@@ -46,8 +44,8 @@ class ViewController: UIViewController {
     let users1: [User] = realmer.objects()
     print(users1)
     
-    // 6. Removing
-    realmer.remove(model: user)
+    // 6. Removing (by id)
+    realmer.remove(id: user.id, type: User.self)
     
     // 7. Printing users after removing
     let users2: [User] = realmer.objects()

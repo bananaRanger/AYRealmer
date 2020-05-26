@@ -27,15 +27,17 @@ import AYRealmer
 class UserEntity: Object, AYRealmConvertibleEntity {
   typealias Model = User
 
+  @objc dynamic var id = Int()
   @objc dynamic var email = String()
   @objc dynamic var fullName = String()
 
   var model: User { Model(with: self) }
 
-  override static func primaryKey() -> String? { return "email" }
+  override static func primaryKey() -> String? { return "id" }
   
   required convenience init(with model: User) {
     self.init()
+    self.id = model.id
     self.email = model.email
     self.fullName = model.fullName
   }
@@ -45,12 +47,17 @@ class UserEntity: Object, AYRealmConvertibleEntity {
 struct User: AYRealmConvertibleModel {
   typealias Entity = UserEntity
   
+  var id = Int()
   var email = String()
   var fullName = String()
 
   var entity: UserEntity { Entity(with: self) }
   
-  init() { }
+  init(email: String, fullName: String) {
+    self.id = Int.random(in: 50...100)
+    self.email = email
+    self.fullName = fullName
+  }
   
   init(with entity: Entity) {
     self.email = entity.email

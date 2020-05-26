@@ -26,12 +26,12 @@ import AYDataBaser
 //MARK: - AYRealmDataProvider protocol
 public protocol AYRealmDataProvider: AYDataProvider {
   mutating func objects<AYModel: AYRealmConvertibleModel>() -> [AYModel]
-  mutating func object<AYModel: AYRealmConvertibleModel>(id: String) -> AYModel?
+  mutating func object<AYModel: AYRealmConvertibleModel, Identifier>(id: Identifier) -> AYModel?
 
   mutating func add<AYModel: AYRealmConvertibleModel>(model: AYModel) -> Bool
   mutating func update<AYModel: AYRealmConvertibleModel>(model: AYModel) -> Bool
 
-  mutating func remove<AYModel: AYRealmConvertibleModel>(id: String, type: AYModel.Type) -> Bool
+  mutating func remove<AYModel: AYRealmConvertibleModel, Identifier>(id: Identifier, type: AYModel.Type) -> Bool
   mutating func remove<AYModel: AYRealmConvertibleModel>(model: AYModel) -> Bool
   mutating func removeAll<AYModel: AYRealmConvertibleModel>(type: AYModel.Type) -> Bool
 

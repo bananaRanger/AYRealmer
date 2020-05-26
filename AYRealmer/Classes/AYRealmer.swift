@@ -70,7 +70,7 @@ public struct AYRealmer: AYRealmDataProvider {
   /// - Parameters:
   ///     - id: entity's *primaryKey*
   ///
-  public mutating func object<AYModel: AYRealmConvertibleModel>(id: String) -> AYModel? {
+  public mutating func object<AYModel: AYRealmConvertibleModel, Identifier>(id: Identifier) -> AYModel? {
     let element = self.element(AYModel.AYEntity.self, by: id)
     return element?.model as? AYModel
   }
@@ -108,7 +108,7 @@ public struct AYRealmer: AYRealmDataProvider {
   /// - Returns: operation result
   ///
   @discardableResult
-  public mutating func remove<AYModel: AYRealmConvertibleModel>(id: String, type: AYModel.Type) -> Bool {
+  public mutating func remove<AYModel: AYRealmConvertibleModel, Identifier>(id: Identifier, type: AYModel.Type) -> Bool {
     guard let element =
       element(type.AYEntity.self, by: id) else { return false }
     return delete(element: element)
@@ -124,7 +124,7 @@ public struct AYRealmer: AYRealmDataProvider {
   @discardableResult
   public mutating func remove<AYModel: AYRealmConvertibleModel>(model: AYModel) -> Bool {
     guard let id = type(of: model).AYEntity.primaryKey(),
-      let value = model.entity.value(forKey: id) as? String else { return false }
+      let value = model.entity.value(forKey: id) else { return false }
     return remove(id: value, type: type(of: model))
   }
   
@@ -155,11 +155,11 @@ public struct AYRealmer: AYRealmDataProvider {
 
 //MARK: - CRUD extension
 extension AYRealmer {
-  mutating func element<Element: Object>(by id: String) -> Element? {
+  mutating func element<Element: Object, Identifier>(by id: Identifier) -> Element? {
     return realm.object(ofType: Element.self, forPrimaryKey: id)
   }
   
-  mutating func element<Element: Object>(_ type: Element.Type, by id: String) -> Element? {
+  mutating func element<Element: Object, Identifier>(_ type: Element.Type, by id: Identifier) -> Element? {
     return realm.object(ofType: type, forPrimaryKey: id)
   }
   
